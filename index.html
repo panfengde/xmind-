@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0,minimum-scale=1.0,user-scalable=0" />
+    <title>XMind</title>
+</head>
+<link rel="stylesheet" href="./reset.css">
+<link rel="stylesheet" href="./style.css">
+
+<body>
+    <div class="header">
+        <h1>财务统计</h1>
+        <label for="fileInput">
+            点击选择财务数据CSV文件:
+            <input type="file" id="fileInput" name="fileInput">
+        </label>
+        <div class="add_action">
+            <button type="button" id="add">添加账单</button>
+        </div>
+    </div>
+
+
+
+    <div id="cover">
+        <form name="addata" class="alert" onsubmit="return false">
+            <p>录入数据</p>
+            <p><span>类型:</span>
+                <select required="required" name="type" id="type">
+                    <option value="0">支出</option>
+                    <option value="1">收入</option>
+                </select>
+            </p>
+            <p><span>子类型：</span>
+                <select required="required" name="category" id="option">
+                    <option value="1bcddudhmh">车贷</option>
+                    <option value="hc5g66kviq">车辆保养</option>
+                    <option value="8s0p77c323">房贷</option>
+                    <option value="0fnhbcle6hg">房屋租赁</option>
+                    <option value="odrjk823mj8">家庭用品</option>
+                    <option value="bsn20th0k2o">交通</option>
+                    <option value="j1h1nohhmmo">旅游</option>
+                    <option value="3tqndrjqgrg">日常饮食</option>
+                </select>
+            </p>
+            <p><span>时间:</span>
+                <input type="datetime-local" required="required" name="time" />
+            </p>
+            <p><span>金额:</span>
+                <input type="number" required="required" name="amount" />
+            </p>
+            <input type="submit" id="submit" value="确认">
+            <input type=" button" id="close" value="关闭">
+        </form>
+    </div>
+
+
+
+</body>
+<script src="./readFile.js"></script>
+<script>
+    alert("请加载财务数据(bill.txt)或录入财务数据")
+
+    //new一个财务统计对象
+    const oneAccount = new AccountBook("fileInput", "body")
+
+    //挂载录入数据Dom的回调操作等
+    initDom()
+    function initDom() {
+        const addBtn = document.querySelector('#add');
+        const addDataButton = document.querySelector('#submit');
+        const typeDom = document.querySelector('#type');
+        const optionDom = document.querySelector('#option');
+        const closeButton = document.querySelector('#close');
+        const cover = document.querySelector('#cover');
+
+        addBtn.addEventListener('click', function () {
+            cover.className = "cover"
+        });
+
+        typeDom.addEventListener('change', function (e) {
+            if (e.target.value == 0) {
+                optionDom.innerHTML = `<option value="1bcddudhmh">车贷</option>
+                    <option value="hc5g66kviq">车辆保养</option>
+                    <option value="8s0p77c323">房贷</option>
+                    <option value="0fnhbcle6hg">房屋租赁</option>
+                    <option value="odrjk823mj8">家庭用品</option>
+                    <option value="bsn20th0k2o">交通</option>
+                    <option value="j1h1nohhmmo">旅游</option>
+                    <option value="3tqndrjqgrg">日常饮食</option>`;
+            } else {
+                optionDom.innerHTML = ` <option value="s73ijpispio">工资</option>
+                    <option value="1vjj47vpd28">股票投资</option>
+                    <option value="5il79e11628">基金投资</option>`;
+            }
+        });
+
+        closeButton.addEventListener('click', function () {
+            cover.className = ""
+        });
+
+        addDataButton.addEventListener('click', function () {
+            let type = document.forms["addata"]["type"].value;
+            type = Number(type);
+            let time = document.forms["addata"]["time"].value;
+            time = new Date(time).toISOString();
+            let category = document.forms["addata"]["category"].value;
+            let amount = document.forms["addata"]["amount"].value;
+            amount = Number(amount);
+            let result = {
+                type,
+                time,
+                category,
+                amount,
+            }
+            console.log(result)
+            oneAccount.addData(result)
+            alert("增加ok")
+        });
+    }
+
+
+
+</script>
+
+</html>

@@ -1,0 +1,207 @@
+body {}
+
+html,
+body {
+	width: 100%;
+	height: 100%;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+}
+
+.header {
+	padding: 10px;
+	height: 100px;
+}
+
+.header h1 {
+	text-align: center;
+	margin: 5px;
+	font-size: 26px;
+	font-weight: bold;
+	font-family: 微软雅黑;
+}
+
+
+.header label,
+.header input {
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.contentBox {
+	/* -webkit-filter: blur(19px); */
+	position: relative;
+	width: 100%;
+	display: flex;
+	justify-content: flex-start;
+	flex-direction: row;
+	/* margin: 0 auto; */
+	border-top: 4px solid #005CC8;
+	flex: 1;
+	overflow: hidden;
+}
+
+.contentBox h2 {
+	font-size: 22px;
+	font-weight: 600;
+}
+
+.title {
+	font-size: 14px;
+	font-weight: 600;
+}
+
+
+.chooseCtr {
+	padding-left: 15px;
+	line-height: 30px;
+}
+
+.firstFilter {
+	height: 100%;
+	padding-top: 15px;
+	flex: 1;
+	border-right: 6px solid #005CC8;
+	box-sizing: border-box;
+	overflow-y: auto;
+}
+
+.secondFilter {
+	height: 100%;
+	padding-top: 15px;
+	flex: 1;
+	box-sizing: border-box;
+	border-left: 6px solid #005CC8;
+	overflow-y: auto;
+}
+
+.filterText {
+	min-height: 200px;
+	padding-left: 10px;
+}
+
+table {
+	font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+	font-size: 12px;
+	width: 100%;
+	text-align: left;
+	border-collapse: collapse;
+	border-radius: 10px;
+}
+
+table th {
+	text-align: center;
+	padding: 8px;
+	font-weight: normal;
+	font-size: 13px;
+	color: #039;
+	background: #b9c9fe;
+}
+
+table td {
+	text-align: center;
+	padding: 8px;
+	background: #e8edff;
+	border-top: 1px solid #fff;
+	color: #669;
+}
+
+table tbody tr:hover td {
+	background: #d0dafd;
+}
+
+
+.tag {
+	color: red;
+	margin-right: 15px;
+}
+
+
+
+.add_action button {
+	width: 100px;
+	height: 30px;
+	border: none;
+	font-size: 1rem;
+	color: #fff;
+}
+
+.add_action button {
+	background-color: #005CC8;
+}
+
+
+#cover {
+	display: none;
+}
+
+.cover {
+	display: block !important;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	right: 0;
+	z-index: 1000;
+	background-color: rgba(0, 0, 0, .6);
+}
+
+.alert {
+	width: 400px;
+	height: 300px;
+	background-color: #fff;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	text-align: center;
+	margin-top: -150px;
+	margin-left: -200px;
+	font-family: "微软雅黑";
+	z-index: 1001;
+}
+
+#submit {
+	border: none;
+	height: 30px;
+	width: 50px;
+	position: absolute;
+	bottom: 5px;
+	right: 65px;
+	color: #039;
+	text-align: center;
+	background: #b9c9fe;
+	cursor: pointer;
+}
+
+#close {
+	border: none;
+	height: 30px;
+	width: 50px;
+	position: absolute;
+	bottom: 5px;
+	right: 5px;
+	color: #039;
+	text-align: center;
+	background: #b9c9fe;
+	cursor: pointer;
+}
+
+.alert p {
+	line-height: 40px;
+}
+
+.alert span {
+	font-size: 14px;
+	display: inline-block;
+	width: 60px;
+}
+
+.alert input,
+.alert select {
+	height: 25px;
+	box-sizing: border-box;
+	width: 230px;
+
+}
